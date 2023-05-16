@@ -28,7 +28,7 @@ RUN cd /root/tawhiri && \
 # -------------------------
 FROM debian:buster-slim
 
-EXPOSE 8000/tcp
+EXPOSE 8022/tcp
 
 RUN apt-get update && \
   apt-get upgrade -y && \
@@ -50,4 +50,4 @@ ENV PATH=/root/.local/bin:$PATH
 
 ENTRYPOINT ["/usr/bin/tini", "--"]
 
-CMD /root/.local/bin/gunicorn -b 0.0.0.0:8000 --worker-class gevent -w 12 tawhiri.api:app
+CMD /root/.local/bin/gunicorn -b 0.0.0.0:8022 --worker-class gevent -w 12 tawhiri.api:app
