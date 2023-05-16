@@ -17,6 +17,7 @@ RUN apt-get update && \
   rm -rf /var/lib/apt/lists/*
 
 COPY . /root/tawhiri
+COPY /srv/tawhiri_dataset /srv/tawhiri_dataset
 
 RUN cd /root/tawhiri && \
   pip3 install --user --no-warn-script-location --ignore-installed -r requirements.txt && \
